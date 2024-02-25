@@ -27,7 +27,7 @@ function ballMovement() {
     dy = -dy;
   }
 
-  if (y - dy > canvas.height - BALL_RADIUS) {
+  if (ballY - dy > canvas.height - BALL_RADIUS) {
     console.log('Game over');
     document.location.reload();
   }
