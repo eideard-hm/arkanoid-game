@@ -31,7 +31,13 @@ function ballMovement() {
   ballY += dy;
 }
 
+function cleanCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 function draw() {
+  cleanCanvas();
+
   drawBall();
 
   ballMovement();
