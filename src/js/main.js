@@ -85,8 +85,13 @@ function cleanCanvas() {
 
 function initEvents() {
   document.addEventListener('keydown', keyDownHandler, false);
-
   document.addEventListener('keyup', keyUpHandler, false);
+
+  document.addEventListener('touchstart', touchStartHandler, { passive: true });
+  document.addEventListener('touchend', () => {
+    rightPressed = false;
+    leftPressed = false;
+  });
 }
 
 function keyDownHandler(e) {
@@ -102,6 +107,16 @@ function keyUpHandler(e) {
     rightPressed = false;
   } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
     leftPressed = false;
+  }
+}
+
+function touchStartHandler(e) {
+  const touchX = e.touches[0].clientX;
+
+  if (touchX > canvas.width / 2) {
+    rightPressed = true;
+  } else {
+    leftPressed = true;
   }
 }
 
