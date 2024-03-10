@@ -1,6 +1,7 @@
 canvas {
   display: block;
   margin: 0 auto;
-  background-color: #000;
+  background-image: url('../../public/img/bkg.png');
+  background-repeat: repeat;
   border: 1px solid #000;
 }
