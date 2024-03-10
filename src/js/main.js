@@ -88,10 +88,14 @@ function initEvents() {
   document.addEventListener('keyup', keyUpHandler, false);
 
   document.addEventListener('touchstart', touchStartHandler, { passive: true });
-  document.addEventListener('touchend', () => {
-    rightPressed = false;
-    leftPressed = false;
-  });
+  document.addEventListener(
+    'touchend',
+    () => {
+      rightPressed = false;
+      leftPressed = false;
+    },
+    { passive: true }
+  );
 }
 
 function keyDownHandler(e) {
