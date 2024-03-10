@@ -1,4 +1,6 @@
 const canvas = document.querySelector('canvas');
+const $sprite = document.querySelector('#sprite');
+
 const ctx = canvas.getContext('2d');
 
 canvas.width = 448;
@@ -14,7 +16,7 @@ let dy = -2;
 
 // variables de la pala
 const PADDLE_HEIGHT = 10;
-const PADDLE_WIDTH = 75;
+const PADDLE_WIDTH = 50;
 // Posiciones de la pala
 let paddleX = (canvas.width - PADDLE_WIDTH) / 2;
 let paddleY = canvas.height - PADDLE_HEIGHT - 10;
@@ -24,7 +26,7 @@ let leftPressed = false;
 function drawBall() {
   ctx.beginPath();
   ctx.arc(ballX, ballY, BALL_RADIUS, 0, Math.PI * 2);
-  ctx.fillStyle = 'red';
+  ctx.fillStyle = '#fff';
   ctx.fill();
   ctx.closePath();
 }
@@ -56,8 +58,17 @@ function ballMovement() {
 }
 
 function drawPaddle() {
-  ctx.fillStyle = '#09f';
-  ctx.fillRect(paddleX, paddleY, PADDLE_WIDTH, PADDLE_HEIGHT);
+  ctx.drawImage(
+    $sprite,
+    29,
+    174,
+    PADDLE_WIDTH,
+    PADDLE_HEIGHT,
+    paddleX,
+    paddleY,
+    PADDLE_WIDTH,
+    PADDLE_HEIGHT
+  );
 }
 
 function paddleMovement() {
